@@ -211,6 +211,23 @@ section{padding:clamp(80px,12vw,150px) 0}
 .work-card h4{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
 .work-card .mono{color:var(--muted);font-size:11px}
 
+/* ---------- POSTER CASE STUDIES ---------- */
+#posters{--sun:#e3a857}
+#posters ::selection{background:#e3a857;color:#0d0d0d}
+.pgal{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pgal .tile{aspect-ratio:7/4}
+.pgal .tile:first-child{grid-column:span 2}
+.cs-facts{display:grid;gap:0;margin-top:22px;border-top:1px solid var(--line)}
+.cs-facts div{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cs-facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);align-self:center}
+.cs-facts dd{font-weight:600}
+.cs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.cs div{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px}
+.cs .mono{color:var(--sun);font-size:11px}
+.cs h4{font-family:var(--display);font-size:19px;letter-spacing:-.02em;line-height:1.15;margin:12px 0 8px}
+.cs p{color:var(--muted);font-size:14px;line-height:1.6}
+@media (max-width:860px){.cs,.pgal{grid-template-columns:1fr}.pgal .tile:first-child{grid-column:auto}}
+
 /* ---------- ABOUT ---------- */
 .about{background:var(--bg-2);border-top:1px solid var(--line)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px)}
@@ -330,6 +347,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <li><a href="#stylekart">UI/UX</a></li>
         <li><a href="#social">Social</a></li>
         <li><a href="#print">Print</a></li>
+        <li><a href="#posters">Posters</a></li>
         <li><a href="#about">About</a></li>
       </ul>
     </nav>
@@ -542,11 +560,91 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   </div>
 </section>
 
+<!-- ========== POSTER CASE STUDIES ========== -->
+<section id="posters" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">05 — Poster design</span>
+      <h2 class="left chrome">One product.<br>One big idea.</h2>
+      <p>Three advertising posters, each built around a single visual idea — type and product working as one image. Shown here in context, with the thinking behind them.</p>
+    </div>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Food &amp; beverage · Promo poster</span>
+        <h3>Roast &amp; Co. — Iced Coffee</h3>
+        <p>A launch poster for a café’s iced coffee. The word COFFEE is turned on its side and runs the full height of the poster, while the cup bursts out of a chocolate splash across the two-tone split.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Typography</span><span class="chip">Photo compositing</span></div>
+        <div class="swatches" aria-label="Roast &amp; Co. — Iced Coffee colour palette"><i style="background:#4B3506"></i><i style="background:#AD6832"></i><i style="background:#953E25"></i><i style="background:#611C03"></i><i style="background:#FFFFFF"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Concept, layout, compositing</dd></div><div><dt>Format</dt><dd>3:4 poster · print &amp; digital</dd></div><div><dt>Type</dt><dd>Concept project</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-street.jpg" alt="Roast &amp; Co. iced coffee posters pasted in a row on a street wall" loading="lazy" width="2016" height="1152"><span class="cap">Street posters</span></button>
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-frame.jpg" alt="Roast &amp; Co. poster framed on a café wall with two detail crops" loading="lazy" width="2016" height="1152"><span class="cap">In-store framing</span></button>
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-board.jpg" alt="Roast &amp; Co. poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Make a cold drink feel exciting.</h4><p>An iced coffee poster has to sell refreshment in a second — from across a café or in a fast scroll — and still leave room for the brand, a short message and a clear call to action.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Turn the headline into architecture.</h4><p>Rotating COFFEE ninety degrees makes it a pillar the whole layout leans on. The small “iced” sits on top like a label, and the tilted cup breaks the panel edge so the splash feels like it is leaving the poster.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Warm palette, one loud voice.</h4><p>Dark roast and caramel browns come straight from the drink. Rounded white type with a hard black offset shadow carries the shout; a soft script handles the description; a rust pill button gives the eye a final stop.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Fragrance · Product poster</span>
+        <h3>Nova Essence</h3>
+        <p>“Define your presence.” A perfume poster split down the middle — sage on one side, oxblood on the other — with the lettering swapping colour as it crosses the line and the bottle standing exactly on the seam.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Social media 4:5</span><span class="chip">Product retouching</span></div>
+        <div class="swatches" aria-label="Nova Essence colour palette"><i style="background:#E1ECD3"></i><i style="background:#670206"></i><i style="background:#8A3A0A"></i><i style="background:#D81020"></i><i style="background:#C9CCD1"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Art direction, layout, retouching</dd></div><div><dt>Format</dt><dd>4:5 social post · poster</dd></div><div><dt>Type</dt><dd>Concept project</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-frame.jpg" alt="Nova Essence poster framed on a sage wall between two detail crops" loading="lazy" width="2016" height="1152"><span class="cap">Gallery wall</span></button>
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-phone.jpg" alt="Nova Essence poster shown as a social media post on a phone, beside the printed poster" loading="lazy" width="2016" height="1152"><span class="cap">Social post</span></button>
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-board.jpg" alt="Nova Essence poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Give a small attar bottle a luxury stage.</h4><p>The product is a compact amber bottle with a busy label. The poster needed to make it feel premium and desirable without redesigning the product itself.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Two moods, one bottle.</h4><p>The split background sets fresh against deep, day against night. The bottle sits on the divide, lifted by a crown of red liquid, while ESSENCE runs vertically down both edges like pillars framing it.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Details that reward a second look.</h4><p>Saffron strands are threaded through the letters of NOVA to hint at the scent. The serif type inverts colour at the seam, including the tagline, so the split reads as intentional from headline to footer.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Watches · Advertising poster</span>
+        <h3>Casio — It’s About Time</h3>
+        <p>A typographic watch ad where the product becomes part of the headline. The dial sits inside the word TIME, and the champagne lettering is colour-matched to the watch face on a near-black ground.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Typographic concept</span><span class="chip">Social media 4:5</span></div>
+        <div class="swatches" aria-label="Casio — It’s About Time colour palette"><i style="background:#160D0A"></i><i style="background:#D8C7A1"></i><i style="background:#E9C46A"></i><i style="background:#EEE9D3"></i><i style="background:#7B3F31"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Concept, typography, layout</dd></div><div><dt>Format</dt><dd>4:5 social post · out-of-home</dd></div><div><dt>Type</dt><dd>Self-initiated concept</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-lightbox.jpg" alt="Casio It’s About Time poster in a backlit street light box at night" loading="lazy" width="2016" height="1152"><span class="cap">Out-of-home light box</span></button>
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-phone.jpg" alt="Casio poster shown as a social media post on a phone, beside the printed poster" loading="lazy" width="2016" height="1152"><span class="cap">Social post</span></button>
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-board.jpg" alt="Casio poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Say “classic watch” with almost nothing.</h4><p>A dress watch sells on restraint. The goal was an ad with one line, one product and no decoration — something that would still read from a distance on a street light box.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Let the watch finish the word.</h4><p>“It’s about time” works as both a pun and a promise. TIME is broken over two lines at poster scale, and the watch drops into the gap after TI — its strap overlapping the letters so type and product become one object.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Borrow every colour from the product.</h4><p>The champagne of the letters matches the ivory dial, the gold case is the only highlight, and the brown strap is the only warm accent. A wide sans for the brand name against a high-contrast serif keeps the hierarchy clear.</p></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ========== ABOUT ========== -->
 <section id="about" class="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="mono sec-num">05 — About</span>
+      <span class="mono sec-num">06 — About</span>
       <h2 class="left chrome">Hi, I'm Athar.</h2>
     </div>
     <div class="about-grid">
@@ -646,7 +744,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section id="contact" class="contact">
   <div class="sun-bg" aria-hidden="true"></div>
   <div class="wrap">
-    <span class="mono sec-num reveal" style="color:var(--sun)">06 — Contact</span>
+    <span class="mono sec-num reveal" style="color:var(--sun)">07 — Contact</span>
     <h2 class="chrome reveal">Let's make it<br><em>memorable.</em></h2>
     <p class="reveal">Have a brand, website or campaign in mind? I'd love to hear about it.</p>
     <a href="mailto:atharraza098@gmail.com" class="mail-big reveal">atharraza098@gmail.com</a>
