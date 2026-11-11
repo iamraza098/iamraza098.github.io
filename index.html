@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Athar Raza — Graphic Designer</title>
+<meta name="description" content="Athar Raza — Graphic Designer specialising in brand identity, UI/UX, social media creatives and print design.">
+<meta property="og:title" content="Athar Raza — Graphic Designer">
+<meta property="og:description" content="Brand identity, UI/UX, social media and print design.">
+<meta property="og:image" content="assets/img/cover.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d0d0d'/%3E%3Ctext x='8' y='43' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='30' letter-spacing='-1.5' fill='%23f4f3ef'%3EAR%3C/text%3E%3Ccircle cx='55' cy='40' r='3.6' fill='%23ef5a2a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0d;
+  --bg-2:#151515;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.16);
+  --text:#ecebe6;
+  --muted:#9a9890;
+  --sun:#c8322a;
+  --sun-soft:rgba(200,50,42,.18);
+  --cream:#fffdfa;
+  --cream-2:#f4efe7;
+  --ink:#1d1c19;
+  --sk:#f26413;
+  --display:"Syne",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --serif:"Instrument Serif",Georgia,serif;
+  --max:1240px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+/* paper grain like the PDF's textured background */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.chrome{
+  background:linear-gradient(180deg,#ffffff 0%,#d9d9d6 38%,#8e8d89 62%,#e9e8e4 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:4px}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(13,13,13,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--body);font-weight:800;font-size:30px;line-height:1;letter-spacing:-.04em;color:#f4f3ef;display:inline-flex;align-items:baseline;transition:opacity .2s}
+.logo:hover{opacity:.85}
+.logo i{display:inline-block;width:.24em;height:.24em;border-radius:50%;background:#ef5a2a;margin-left:.06em;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.logo:hover i{transform:scale(1.35)}
+.nav ul{display:flex;gap:32px;list-style:none}
+.nav ul a{font-size:14px;color:var(--muted);transition:color .2s}
+.nav ul a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .2s,background .2s,color .2s,border-color .2s}
+.btn-solid{background:var(--text);color:var(--bg)}
+.btn-solid:hover{background:#fff;transform:translateY(-2px)}
+.btn-line{border:1px solid var(--line-2)}
+.btn-line:hover{border-color:var(--text);transform:translateY(-2px)}
+.btn svg{width:16px;height:16px}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);place-items:center}
+.menu-btn i{display:block;width:16px;height:1.5px;background:var(--text);position:relative}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:var(--text)}
+.menu-btn i::before{top:-5px}.menu-btn i::after{top:5px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:min(100svh,940px);padding-top:72px;display:flex;align-items:center;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:center;width:100%}
+.hero-copy{position:relative;z-index:2;padding:48px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:28px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.15)}
+.hero h1{width:max-content;max-width:calc(100vw - 2*var(--gutter));font-family:var(--display);font-weight:800;font-size:clamp(52px,7.4vw,118px);line-height:.88;letter-spacing:-.045em}
+.hero h1 em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.02em;color:var(--sun);-webkit-text-fill-color:var(--sun)}
+.hero p.lede{max-width:470px;margin:32px 0 40px;color:var(--muted);font-size:18px}
+.hero p.lede strong{color:var(--text);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{position:relative;height:calc(100svh - 72px);max-height:860px;min-height:480px;display:flex;align-items:flex-end;justify-content:center;align-self:end}
+.portrait{position:relative;height:88%;aspect-ratio:506/1048}
+.sun{position:absolute;width:125%;aspect-ratio:1;border-radius:50%;top:-12%;left:53%;transform:translateX(-50%);
+  background:radial-gradient(circle at 40% 35%,#e0473c,var(--sun) 55%,#8f1f1a);box-shadow:0 0 140px 20px var(--sun-soft)}
+.hero-art img{position:relative;height:100%;width:auto;object-fit:contain;object-position:bottom;filter:contrast(1.05);
+  -webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 100%);mask-image:linear-gradient(to bottom,#000 80%,transparent 100%)}
+.kata{position:absolute;right:-6px;top:12%;writing-mode:vertical-rl;font-family:"Noto Sans JP",sans-serif;font-size:15px;letter-spacing:.35em;color:var(--sun);opacity:.9}
+.kata.left{right:auto;left:0;top:auto;bottom:16%;color:var(--muted)}
+.scroll-cue{position:absolute;bottom:28px;left:var(--gutter);display:flex;align-items:center;gap:12px;color:var(--muted)}
+.scroll-cue span{width:1px;height:42px;background:linear-gradient(var(--muted),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- MARQUEE ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding:22px 0;background:var(--bg-2)}
+.marquee-track{display:flex;gap:48px;width:max-content;animation:marq 38s linear infinite}
+.marquee-track span{font-family:var(--display);font-weight:700;font-size:clamp(22px,3vw,36px);letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:center;gap:48px}
+.marquee-track span::after{content:"✦";color:var(--sun);font-size:.6em}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+section{padding:clamp(80px,12vw,150px) 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:24px 64px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.sec-num{color:var(--sun)}
+.sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(40px,6.4vw,92px);line-height:.92;letter-spacing:-.04em}
+.sec-head p{color:var(--muted);max-width:520px;justify-self:end;grid-column:2}
+.sec-head .left{grid-column:1/-1}
+
+/* ---------- BRAND IDENTITY ---------- */
+.brand{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,56px);padding:clamp(32px,5vw,56px) 0;border-top:1px solid var(--line)}
+.brand:last-child{border-bottom:1px solid var(--line)}
+.brand-meta{position:sticky;top:100px;align-self:start}
+.brand-meta .mono{color:var(--muted)}
+.brand-meta h3{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.4vw,44px);letter-spacing:-.03em;line-height:1;margin:14px 0 16px}
+.brand-meta p{color:var(--muted);font-size:15px;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12px;padding:6px 12px;border:1px solid var(--line-2);border-radius:999px;color:var(--muted)}
+.swatches{display:flex;gap:6px;margin-top:22px}
+.swatches i{width:28px;height:28px;border-radius:50%;border:1px solid var(--line-2)}
+.bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:14px}
+.bento .tile:first-child{grid-row:span 2}
+.tile{position:relative;overflow:hidden;border-radius:14px;background:#1a1a1a;cursor:zoom-in;border:1px solid var(--line)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.tile:hover img{transform:scale(1.04)}
+.tile .cap{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:999px;background:rgba(13,13,13,.72);backdrop-filter:blur(8px);font-size:11px;opacity:0;transform:translateY(6px);transition:.3s}
+.tile:hover .cap{opacity:1;transform:none}
+
+/* ---------- STYLEKART CASE STUDY ---------- */
+.sk{background:var(--cream);color:var(--ink);position:relative;overflow:hidden}
+.sk ::selection{background:var(--sk);color:#fff}
+.sk .sec-num{color:var(--sk)}
+.sk .muted{color:#6c6a65}
+.sk-top{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.sk-badge{display:inline-flex;align-items:center;gap:10px;font-weight:700}
+.sk-badge b{width:30px;height:30px;border-radius:8px;background:var(--sk);color:#fff;display:grid;place-items:center;font-family:var(--display)}
+.sk h2{font-family:var(--display);font-weight:800;font-size:clamp(48px,7vw,104px);line-height:.9;letter-spacing:-.045em;margin:24px 0}
+.sk h2 em,.sk h3 em{font-family:var(--serif);font-weight:400;color:var(--sk);letter-spacing:-.01em}
+.sk-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(29,28,25,.14)}
+.sk-meta .mono{font-size:10.5px;color:#8b8983;display:block;margin-bottom:4px}
+.sk-meta b{font-size:14px;font-weight:700}
+.sk-phones{position:relative;height:560px}
+.sk-phones::before{content:"";position:absolute;inset:6% 4%;border-radius:50%;background:radial-gradient(circle,#f4ebe0,transparent 70%)}
+.sk-phones img{position:absolute;width:auto;height:76%;filter:drop-shadow(0 30px 40px rgba(29,28,25,.22));transition:transform .5s}
+.sk-phones img:nth-child(1){left:2%;top:16%;transform:rotate(-7deg)}
+.sk-phones img:nth-child(2){right:2%;top:16%;transform:rotate(7deg)}
+.sk-phones img:nth-child(3){left:50%;top:4%;height:88%;transform:translateX(-50%);z-index:2}
+.sk-phones:hover img:nth-child(1){transform:rotate(-10deg) translateX(-14px)}
+.sk-phones:hover img:nth-child(2){transform:rotate(10deg) translateX(14px)}
+
+.sk-challenge{margin-top:clamp(64px,9vw,120px);background:var(--ink);color:var(--cream);border-radius:24px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.sk-challenge h3{font-family:var(--display);font-size:clamp(32px,4vw,54px);line-height:1;letter-spacing:-.035em;margin-top:14px}
+.sk-challenge .q{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:28px;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.3vw,30px);line-height:1.25;align-self:center}
+.sk-challenge .q .mono{display:block;font-family:var(--mono);font-style:normal;font-size:11px;color:var(--sk);margin-bottom:14px}
+.sk-challenge p{color:#b8b5ad;margin-top:18px}
+
+.sk-principles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.pr{background:#fff;border:1px solid rgba(29,28,25,.1);border-radius:18px;padding:28px;transition:transform .3s,box-shadow .3s}
+.pr:hover{transform:translateY(-4px);box-shadow:0 20px 40px -20px rgba(29,28,25,.25)}
+.pr .mono{color:var(--sk)}
+.pr h4{font-family:var(--display);font-size:22px;margin:24px 0 8px;letter-spacing:-.02em}
+.pr p{color:#6c6a65;font-size:15px}
+
+.sk-sub{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:clamp(64px,9vw,110px) 0 28px}
+.sk-sub h3{font-family:var(--display);font-size:clamp(30px,4vw,52px);letter-spacing:-.035em;line-height:1}
+
+.journey{display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.journey::before{content:"";position:absolute;top:22px;left:10%;right:10%;height:1px;background:rgba(29,28,25,.18)}
+.step{text-align:center;position:relative}
+.step .dot{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:var(--cream);border:1px solid var(--sk);color:var(--sk);font-family:var(--mono);font-size:12px}
+.step:last-child .dot{background:var(--sk);color:#fff}
+.step b{display:block;font-size:15px}
+.step span{font-size:13px;color:#8b8983}
+
+.screens{display:flex;gap:22px;overflow-x:auto;padding:12px 4px 28px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.screens figure{flex:0 0 auto;width:210px;scroll-snap-align:start;cursor:zoom-in}
+.screens img{width:100%;filter:drop-shadow(0 18px 24px rgba(29,28,25,.18));transition:transform .4s}
+.screens figure:hover img{transform:translateY(-6px)}
+.screens figcaption{margin-top:12px;font-size:13px;color:#6c6a65;text-align:center}
+.screens figcaption b{display:block;color:var(--ink);font-size:14px}
+
+.sk-system{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.palette div{border-radius:14px;aspect-ratio:1/1.15;padding:12px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(29,28,25,.1);font-size:12px;font-weight:700}
+.palette div span{font-family:var(--mono);font-weight:400;font-size:11px;opacity:.75}
+.next{background:#e9dfd2;border-radius:18px;padding:32px}
+.next h4{font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-.03em;margin:10px 0 12px}
+.next h4 em{font-family:var(--serif);font-weight:400;color:#8a5a3a}
+.next .chips{margin-top:20px}
+.next .chip{color:var(--ink);border-color:rgba(29,28,25,.2);background:rgba(255,255,255,.5)}
+.reflection{margin-top:20px;padding:24px 28px;border-left:3px solid var(--sk);background:#fff;border-radius:0 14px 14px 0;color:#4a4843}
+.sk .btn-dark{background:var(--ink);color:var(--cream)}
+.sk .btn-dark:hover{background:var(--sk);transform:translateY(-2px)}
+
+/* ---------- NIMBU MIRCHI WEBSITE ---------- */
+.nm{background:#12372a;color:#f4f6e6}
+.nm ::selection{background:#f2d53c;color:#14201b}
+.nm .sec-num{color:#f2d53c}
+.nm .muted{color:#b9c9b4}
+.nm-top{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.nm-badge{display:inline-flex;align-items:center;gap:10px;font-weight:700}
+.nm-badge b{width:30px;height:30px;border-radius:50%;background:#f2d53c;color:#14201b;display:grid;place-items:center;font-family:var(--display)}
+.nm h2{font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,88px);line-height:.92;letter-spacing:-.045em;margin-top:24px}
+.nm h2 em{font-family:var(--serif);font-weight:400;color:#f2d53c;letter-spacing:-.01em}
+.nm .sk-meta{grid-template-columns:repeat(2,1fr);margin-top:28px;border-top-color:rgba(244,246,230,.18)}
+.nm .sk-meta .mono{color:#b9c9b4}
+.nm-links{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:32px}
+.nm .btn-lemon{background:#f2d53c;color:#14201b}
+.nm .btn-lemon:hover{background:#fff;transform:translateY(-2px)}
+.nm .btn-line{border-color:rgba(244,246,230,.4)}
+.nm .btn-line:hover{border-color:#f4f6e6}
+.nm-note{flex-basis:100%;font-size:13px;color:#b9c9b4}
+.nm-shots{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,6vw,72px)}
+.nm-shots .tile{aspect-ratio:2/1;background:#0c2a1f;border-color:rgba(244,246,230,.16)}
+.nm-shots .tile img{object-position:top}
+.nm-shots .mono{color:#b9c9b4}
+:where(.nm) :focus-visible{outline-color:#f2d53c}
+
+/* ---------- SOCIAL / PRINT GRID ---------- */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid-2 .tile{aspect-ratio:7/4}
+.print{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.print .tile{aspect-ratio:7/4}
+.print .tile:first-child{grid-column:span 2}
+.work-card{display:flex;flex-direction:column;gap:14px}
+.work-card .info{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.work-card h4{font-family:var(--display);font-size:19px;letter-spacing:-.02em}
+.work-card .mono{color:var(--muted);font-size:11px}
+
+/* ---------- POSTER CASE STUDIES ---------- */
+#posters{--sun:#e3a857}
+#posters ::selection{background:#e3a857;color:#0d0d0d}
+.pgal{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pgal .tile{aspect-ratio:7/4}
+.pgal .tile:first-child{grid-column:span 2}
+.cs-facts{display:grid;gap:0;margin-top:22px;border-top:1px solid var(--line)}
+.cs-facts div{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.cs-facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);align-self:center}
+.cs-facts dd{font-weight:600}
+.cs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.cs div{background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:22px}
+.cs .mono{color:var(--sun);font-size:11px}
+.cs h4{font-family:var(--display);font-size:19px;letter-spacing:-.02em;line-height:1.15;margin:12px 0 8px}
+.cs p{color:var(--muted);font-size:14px;line-height:1.6}
+@media (max-width:860px){.cs,.pgal{grid-template-columns:1fr}.pgal .tile:first-child{grid-column:auto}}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--bg-2);border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px)}
+.about-intro{font-family:var(--display);font-weight:600;font-size:clamp(24px,2.6vw,34px);line-height:1.2;letter-spacing:-.025em}
+.about-intro em{font-family:var(--serif);font-weight:400;color:var(--sun)}
+.block-title{color:var(--muted);margin:48px 0 18px;display:flex;align-items:center;gap:14px}
+.block-title::after{content:"";flex:1;height:1px;background:var(--line)}
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tool{display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border:1px solid var(--line-2);border-radius:12px;font-size:14px;font-weight:500;transition:border-color .2s,transform .2s}
+.tool:hover{border-color:var(--text);transform:translateY(-2px)}
+.tool b{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;font-family:var(--display);font-size:12px;font-weight:700;background:#222;border:1px solid var(--line-2)}
+.timeline{list-style:none}
+.timeline>li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.timeline>li:first-child{border-top:1px solid var(--line)}
+.timeline h4{font-family:var(--display);font-size:21px;letter-spacing:-.02em}
+.timeline .role{color:var(--muted);font-size:15px;grid-column:1}
+.timeline .when{color:var(--muted);grid-row:1;grid-column:2;align-self:center;font-size:11px}
+.timeline li.now h4::after{content:"Current";font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#3ddc84;margin-left:12px;vertical-align:middle;border:1px solid rgba(61,220,132,.35);padding:3px 8px;border-radius:999px}
+.edu{padding:22px;border:1px solid var(--line);border-radius:14px;margin-top:4px}
+.edu h4{font-family:var(--display);font-size:19px}
+.edu p{color:var(--muted);font-size:15px}
+.timeline .hl{grid-column:1/-1;list-style:none;margin-top:10px;display:grid;gap:6px}
+.timeline .hl li{position:relative;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.55}
+.timeline .hl li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--sun)}
+.skills{display:grid;gap:0}
+.skills div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.skills dt{font-weight:600;font-size:14px}
+.skills dd{color:var(--muted);font-size:14px}
+.awards{list-style:none;display:grid;gap:10px}
+.awards li{padding:14px 18px;border:1px solid var(--line);border-radius:12px;color:var(--muted);font-size:14px}
+.awards b{display:block;color:var(--text);font-family:var(--display);font-size:16px;font-weight:700;margin-bottom:2px}
+@media (max-width:520px){.skills div{grid-template-columns:1fr;gap:2px}}
+
+/* ---------- CONTACT ---------- */
+.contact{text-align:center;position:relative;overflow:hidden}
+.contact .sun-bg{position:absolute;width:640px;max-width:120vw;aspect-ratio:1;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-30%);background:radial-gradient(circle,rgba(200,50,42,.35),transparent 65%);pointer-events:none}
+.contact h2{position:relative;font-family:var(--display);font-weight:800;font-size:clamp(48px,9vw,140px);line-height:.9;letter-spacing:-.05em;margin:20px 0 28px}
+.contact h2 em{font-family:var(--serif);font-weight:400;color:var(--sun);-webkit-text-fill-color:var(--sun)}
+.contact p{position:relative;color:var(--muted);max-width:520px;margin:0 auto 40px;font-size:18px}
+.contact-links{position:relative;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.mail-big{display:inline-block;position:relative;font-family:var(--display);font-weight:600;font-size:clamp(20px,3.2vw,40px);letter-spacing:-.02em;margin-bottom:40px;border-bottom:2px solid var(--line-2);padding-bottom:6px;transition:border-color .3s,color .3s;word-break:break-all}
+.mail-big:hover{border-color:var(--sun);color:#fff}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ---------- LIGHTBOX ---------- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(8,8,8,.94);display:none;align-items:center;justify-content:center;padding:64px 16px}
+.lb.open{display:flex;animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.lb img{max-width:min(1400px,100%);max-height:100%;object-fit:contain;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:rgba(20,20,20,.7);display:grid;place-items:center;font-size:20px;transition:background .2s}
+.lb button:hover{background:#2a2a2a}
+.lb .x{top:16px;right:16px}
+.lb .prev{left:16px;top:50%;transform:translateY(-50%)}
+.lb .nxt{right:16px;top:50%;transform:translateY(-50%)}
+.lb .count{position:absolute;top:28px;left:24px;color:var(--muted)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .marquee-track,.scroll-cue span{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1020px){
+  .brand{grid-template-columns:1fr}
+  .brand-meta{position:static}
+  .sk-top{grid-template-columns:1fr}
+  .sk-phones{height:480px}
+}
+@media (max-width:860px){
+  .nav ul,.nav .btn{display:none}
+  .menu-btn{display:grid}
+  .nav.open{background:rgba(13,13,13,.97)}
+  .nav.open ul{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(13,13,13,.97);padding:12px var(--gutter) 28px;gap:0;border-bottom:1px solid var(--line)}
+  .nav.open ul a{display:block;padding:14px 0;font-size:18px;color:var(--text);border-bottom:1px solid var(--line)}
+  .hero .wrap{grid-template-columns:minmax(0,1fr)}
+  .hero h1{font-size:clamp(46px,14vw,96px)}
+  .hero-copy{padding:24px 0 0}
+  .hero-art{height:58svh;min-height:380px;max-height:600px;order:-1;margin-top:8px;align-self:auto}
+  .scroll-cue{display:none}
+  .sec-head{grid-template-columns:1fr}
+  .sec-head p{grid-column:1;justify-self:start}
+  .sk-challenge,.sk-system,.about-grid,.nm-top,.nm-shots{grid-template-columns:1fr}
+  .sk-principles{grid-template-columns:1fr}
+  .sk-meta{grid-template-columns:repeat(2,1fr)}
+  .journey{grid-template-columns:1fr;gap:18px;text-align:left}
+  .journey::before{top:0;bottom:0;left:22px;right:auto;width:1px;height:auto}
+  .step{display:grid;grid-template-columns:44px 1fr;column-gap:16px;text-align:left;align-items:center}
+  .step .dot{margin:0;grid-row:span 2}
+  .grid-2{grid-template-columns:1fr}
+  .print{grid-template-columns:1fr}
+  .print .tile:first-child{grid-column:auto}
+  .bento{grid-template-columns:1fr}
+  .bento .tile:first-child{grid-row:auto}
+}
+@media (max-width:520px){
+  .sk-phones{height:380px}
+  .palette{grid-template-columns:repeat(2,1fr)}
+  .screens figure{width:170px}
+  .kata{font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ========== NAV ========== -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="Athar Raza — home">AR<i aria-hidden="true"></i></a>
+    <nav aria-label="Primary">
+      <ul id="menu">
+        <li><a href="#identity">Branding</a></li>
+        <li><a href="#stylekart">UI/UX</a></li>
+        <li><a href="#social">Social</a></li>
+        <li><a href="#print">Print</a></li>
+        <li><a href="#posters">Posters</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-solid">Let's talk</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ========== HERO ========== -->
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow mono">Available for freelance &amp; full-time</div>
+      <h1 class="chrome">Graphic<br>designer<em>.</em></h1>
+      <p class="lede">I'm <strong>Athar Raza</strong> — I design brand identities, websites and digital experiences that turn ideas into <strong>clean, strategic and memorable</strong> visuals.</p>
+      <div class="cta-row">
+        <a href="#identity" class="btn btn-solid">View my work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="mailto:atharraza098@gmail.com" class="btn btn-line">atharraza098@gmail.com</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <span class="kata" aria-hidden="true">グラフィックデザイナー</span>
+      <span class="kata left" aria-hidden="true">アタハル・ラザ</span>
+      <div class="portrait">
+        <div class="sun" aria-hidden="true"></div>
+        <img src="assets/img/athar-portrait.png" alt="Portrait of Athar Raza wearing a black kimono jacket" width="506" height="1048" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue mono"><span></span>Scroll</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Brand Identity</span><span>UI/UX Design</span><span>Web Design</span><span>Social Media Creatives</span><span>Print &amp; Catalogues</span><span>Visual Direction</span>
+    <span>Brand Identity</span><span>UI/UX Design</span><span>Web Design</span><span>Social Media Creatives</span><span>Print &amp; Catalogues</span><span>Visual Direction</span>
+  </div>
+</div>
+
+<!-- ========== VISUAL IDENTITY ========== -->
+<section id="identity">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">01 — Visual identity</span>
+      <h2 class="left chrome">Brands with a<br>point of view.</h2>
+      <p>From colours, typography and layouts to overall brand expression — complete visual identities that give businesses a distinct and memorable presence.</p>
+    </div>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Automotive · Logo &amp; identity</span>
+        <h3>Rovex Motion Solutions</h3>
+        <p>"Drive by precision. Built to perform." A speed-driven R-mark with a wheel motif, paired with a confident navy and high-energy orange system that scales from merch to signage.</p>
+        <div class="chips"><span class="chip">Logo design</span><span class="chip">Colour system</span><span class="chip">Brand collateral</span></div>
+        <div class="swatches" aria-label="Rovex colour palette"><i style="background:#0D182A"></i><i style="background:#FF6A00"></i><i style="background:#5E656D"></i><i style="background:#E6E8EB"></i><i style="background:#F2F4F7"></i></div>
+      </div>
+      <div class="bento">
+        <button class="tile" data-gallery="rovex"><img src="assets/img/rovex-mockup.jpg" alt="Rovex brand mockups: notebook, bottle, t-shirt, cap, lanyard" loading="lazy"><span class="cap">Brand collateral</span></button>
+        <button class="tile" data-gallery="rovex"><img src="assets/img/rovex-logo.jpg" alt="Rovex logo and its variations" loading="lazy"><span class="cap">Logo system</span></button>
+        <button class="tile" data-gallery="rovex"><img src="assets/img/rovex-palette.jpg" alt="Rovex colour palette and usage guide" loading="lazy"><span class="cap">Palette &amp; usage</span></button>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Consulting · Logo &amp; identity</span>
+        <h3>Nexora Consulting</h3>
+        <p>A growth-chart emblem in navy and teal that signals momentum and trust — built for a consultancy that needs to look established from day one.</p>
+        <div class="chips"><span class="chip">Logo design</span><span class="chip">Colour system</span><span class="chip">Stationery</span></div>
+        <div class="swatches" aria-label="Nexora colour palette"><i style="background:#1F3A5F"></i><i style="background:#00A6A6"></i><i style="background:#5E656D"></i><i style="background:#E6E8EB"></i><i style="background:#F2F4F7"></i></div>
+      </div>
+      <div class="bento">
+        <button class="tile" data-gallery="nexora"><img src="assets/img/nexora-mockup.jpg" alt="Nexora brand mockups on merchandise and stationery" loading="lazy"><span class="cap">Brand collateral</span></button>
+        <button class="tile" data-gallery="nexora"><img src="assets/img/nexora-logo.jpg" alt="Nexora Consulting logo and variations" loading="lazy"><span class="cap">Logo system</span></button>
+        <button class="tile" data-gallery="nexora"><img src="assets/img/nexora-palette.jpg" alt="Nexora colour palette and usage guide" loading="lazy"><span class="cap">Palette &amp; usage</span></button>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Pet care · Logo &amp; identity</span>
+        <h3>Meowomo</h3>
+        <p>A playful hand-lettered wordmark with a tail-like swash and paw accent — warm brown and orange tones that feel friendly, caring and instantly recognisable.</p>
+        <div class="chips"><span class="chip">Wordmark</span><span class="chip">Packaging feel</span><span class="chip">Merchandise</span></div>
+        <div class="swatches" aria-label="Meowomo colour palette"><i style="background:#3B2A1E"></i><i style="background:#D9661A"></i><i style="background:#F3EDE2"></i></div>
+      </div>
+      <div class="bento">
+        <button class="tile" data-gallery="meowomo"><img src="assets/img/meowomo-mockup.jpg" alt="Meowomo brand mockups: notebook, t-shirt, cap, stationery" loading="lazy"><span class="cap">Brand collateral</span></button>
+        <button class="tile" data-gallery="meowomo"><img src="assets/img/meowomo-logo.jpg" alt="Meowomo wordmark on light, orange and brown backgrounds" loading="lazy"><span class="cap">Wordmark</span></button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== STYLEKART CASE STUDY ========== -->
+<section id="stylekart" class="sk">
+  <div class="wrap">
+    <div class="sk-top">
+      <div class="reveal">
+        <span class="mono sec-num">02 — UI/UX case study</span><br><br>
+        <span class="sk-badge"><b>S</b>StyleKart</span>
+        <h2>Your style,<br><em>starts here.</em></h2>
+        <p class="muted" style="max-width:480px;font-size:18px">A more welcoming first impression for fashion shopping — designed to help people move from browsing inspiration to finding a style of their own.</p>
+        <div class="sk-meta">
+          <div><span class="mono">Role</span><b>UI/UX designer</b></div>
+          <div><span class="mono">Scope</span><b>Onboarding + auth</b></div>
+          <div><span class="mono">Platform</span><b>Mobile app</b></div>
+          <div><span class="mono">Tools</span><b>Figma</b></div>
+        </div>
+      </div>
+      <div class="sk-phones reveal" aria-hidden="true">
+        <img src="assets/img/sk-signup.png" alt="" loading="lazy">
+        <img src="assets/img/sk-screen-3.png" alt="" loading="lazy">
+        <img src="assets/img/sk-screen-1.png" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <div class="sk-challenge reveal">
+      <div>
+        <span class="mono" style="color:var(--sk)">The challenge</span>
+        <h3>Choice is <em style="font-family:var(--serif);font-weight:400;color:var(--sk)">abundant.</em> The first step should feel easy.</h3>
+        <p>Online fashion offers countless choices. A new shopping app has only a few moments to communicate its purpose, establish trust, and invite people to explore.</p>
+      </div>
+      <div class="q"><span class="mono">Design question</span>How might we create an intuitive first-time experience that introduces the brand, communicates its value, and makes getting started simple?</div>
+    </div>
+
+    <div class="sk-sub reveal"><h3>Three principles.<br>One warmer start.</h3><p class="muted" style="max-width:420px">Keep the interface clear, let fashion photography carry the mood, and make every screen feel like part of one experience.</p></div>
+    <div class="sk-principles">
+      <div class="pr reveal"><span class="mono">01</span><h4>Clear by design</h4><p>Short messages and focused screens make the next step easy to understand.</p></div>
+      <div class="pr reveal"><span class="mono">02</span><h4>Led by style</h4><p>Editorial fashion photography shows the product's purpose from the very first screen.</p></div>
+      <div class="pr reveal"><span class="mono">03</span><h4>Easy to enter</h4><p>Familiar sign-in patterns and a skip option give users more than one way forward.</p></div>
+    </div>
+
+    <div class="sk-sub reveal"><h3>From hello to<br><em>personal style.</em></h3><p class="muted" style="max-width:420px">The primary path introduces the brand, sets expectations and leads into familiar account access — with a "Skip for now" route for people who want to explore first.</p></div>
+    <div class="journey reveal">
+      <div class="step"><div class="dot">01</div><b>Brand intro</b><span>Meet StyleKart</span></div>
+      <div class="step"><div class="dot">02</div><b>Onboarding</b><span>Discover the promise</span></div>
+      <div class="step"><div class="dot">03</div><b>Sign up</b><span>Create an account</span></div>
+      <div class="step"><div class="dot">04</div><b>Log in</b><span>Welcome back</span></div>
+      <div class="step"><div class="dot">→</div><b>Explore</b><span>Continue into app</span></div>
+    </div>
+
+    <div class="sk-sub reveal"><h3>The screens.</h3><p class="muted">Scroll sideways · tap to enlarge</p></div>
+    <div class="screens reveal" role="list">
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-splash.png" alt="StyleKart splash screen" loading="lazy"><figcaption><b>Splash</b>Brand intro</figcaption></figure>
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-screen-1.png" alt="Onboarding: Look good, feel good" loading="lazy"><figcaption><b>Look good, feel good</b>Start with inspiration</figcaption></figure>
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-screen-2.png" alt="Onboarding: Find your outfits" loading="lazy"><figcaption><b>Find your outfits</b>Make discovery simple</figcaption></figure>
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-screen-3.png" alt="Onboarding: Your style, your way" loading="lazy"><figcaption><b>Your style, your way</b>Room for expression</figcaption></figure>
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-signup.png" alt="Sign up screen" loading="lazy"><figcaption><b>Join with us</b>Create an account</figcaption></figure>
+      <figure role="listitem" data-gallery="sk-screens"><img src="assets/img/sk-login.png" alt="Log in screen" loading="lazy"><figcaption><b>Log in</b>Return to your account</figcaption></figure>
+    </div>
+
+    <div class="sk-sub reveal"><h3>A simple system,<br>ready to grow.</h3></div>
+    <div class="sk-system">
+      <div class="reveal">
+        <div class="palette">
+          <div style="background:#F26413;color:#fff">Brand orange<span>#F26413</span></div>
+          <div style="background:#FFFDFA">Soft white<span>#FFFDFA</span></div>
+          <div style="background:#A3A19D;color:#fff">Neutral grey<span>#A3A19D</span></div>
+          <div style="background:#1D1C19;color:#fff">Ink<span>#1D1C19</span></div>
+        </div>
+        <div class="reflection"><span class="mono" style="color:var(--sk);font-size:11px">Reflection</span><br>This concept strengthened my understanding of mobile hierarchy, onboarding, authentication patterns, and the value of pairing visual appeal with clear navigation.</div>
+      </div>
+      <div class="next reveal">
+        <span class="mono" style="font-size:11px;color:#8a5a3a">What comes next</span>
+        <h4>From first hello<br><em>to a full wardrobe.</em></h4>
+        <p class="muted">The next phase extends StyleKart into a complete shopping journey — from discovery through checkout and order history.</p>
+        <div class="chips"><span class="chip">Personalised home</span><span class="chip">Categories + filters</span><span class="chip">Product details</span><span class="chip">Wishlist + cart</span><span class="chip">Checkout</span><span class="chip">Orders + profile</span></div>
+        <div style="margin-top:28px"><button class="btn btn-dark" id="openDeck">View full case study deck
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NIMBU MIRCHI WEBSITE ========== -->
+<section id="nimbu" class="nm">
+  <div class="wrap">
+    <div class="nm-top">
+      <div class="reveal">
+        <span class="mono sec-num">02 — UI/UX · Website design</span><br><br>
+        <span class="nm-badge"><b>N</b>Nimbu Mirchi</span>
+        <h2>Street food,<br><em>sat at a table.</em></h2>
+      </div>
+      <div class="reveal">
+        <p class="muted" style="max-width:520px;font-size:18px">A website concept for a Delhi street-food restaurant — taken from grayscale wireframes to a full-colour, clickable prototype, with a menu, opening hours and table booking on one page.</p>
+        <div class="sk-meta">
+          <div><span class="mono">Scope</span><b>Home + About</b></div>
+          <div><span class="mono">Platform</span><b>Desktop + mobile</b></div>
+          <div><span class="mono">Stages</span><b>Wireframe → UI → prototype</b></div>
+          <div><span class="mono">Tools</span><b>Figma</b></div>
+        </div>
+        <div class="nm-links">
+          <a class="btn btn-lemon" href="https://www.figma.com/design/kk0M66oDcboRlxKfc5XKpZ/Restaurant-Website-UI---Nimbu-Mirchi?node-id=2-245&amp;t=BgssgQlDj0FKoT6T-1" target="_blank" rel="noopener">View colour design
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="btn btn-line" href="https://www.figma.com/design/XHfI9eUl8MEWwbeGvCs6vQ/Restaurant-Website-Wireframes---Nimbu-Mirchi?node-id=0-1&amp;t=IWXgxAMvq9aePqc8-1" target="_blank" rel="noopener">View wireframes
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <span class="nm-note">Both links open in Figma, view only.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nm-shots">
+      <div class="work-card reveal"><button class="tile" data-gallery="nimbu"><img src="assets/img/nimbu-wireframe-home.png" alt="Grayscale wireframe of the Nimbu Mirchi home page" loading="lazy"></button><div class="info"><h4>Wireframe</h4><span class="mono">Structure first</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="nimbu"><img src="assets/img/nimbu-colour-hero.png" alt="Full-colour hero of the Nimbu Mirchi home page with a hanging lemon and chilli charm" loading="lazy"></button><div class="info"><h4>Colour design</h4><span class="mono">Final UI</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SOCIAL MEDIA ========== -->
+<section id="social">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">03 — Social media</span>
+      <h2 class="left chrome">Scroll-stopping<br>creatives.</h2>
+      <p>Marketing creatives, awareness posts and digital campaigns for hardware and manufacturing brands — on-brand, while experimenting with creative manipulation to bring fresh perspectives.</p>
+    </div>
+    <div class="grid-2">
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-1.jpg" alt="Instagram post: Hotmelt PUR adhesives for edgebanding" loading="lazy"></button><div class="info"><h4>Hotmelt PUR Adhesives</h4><span class="mono">Instagram</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-2.jpg" alt="Instagram post: Where aces meet wood" loading="lazy"></button><div class="info"><h4>Where Aces Meet Wood</h4><span class="mono">Instagram</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-3.jpg" alt="Instagram post: Shielding homes from silent dangers — pleated mesh" loading="lazy"></button><div class="info"><h4>Shielding Homes</h4><span class="mono">Campaign</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-4.jpg" alt="Instagram post: Corner connections that never fail" loading="lazy"></button><div class="info"><h4>Corner Connections</h4><span class="mono">Instagram</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-5.jpg" alt="Instagram post: Strong bond, unshakable strength adhesives" loading="lazy"></button><div class="info"><h4>Unshakable Strength</h4><span class="mono">Product launch</span></div></div>
+      <div class="work-card reveal"><button class="tile" data-gallery="social"><img src="assets/img/social-6.jpg" alt="Instagram post: NWA Series profile wrapping machine" loading="lazy"></button><div class="info"><h4>NWA Series Machine</h4><span class="mono">Instagram</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRINT ========== -->
+<section id="print" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">04 — Print design</span>
+      <h2 class="left chrome">Made to be<br>held.</h2>
+      <p>Corporate brochures, product catalogues and price books — premium print-ready layouts that communicate products, services and brand identity.</p>
+    </div>
+    <div class="print">
+      <button class="tile reveal" data-gallery="print"><img src="assets/img/print-securistyle.jpg" alt="Securistyle window hardware brochure design" loading="lazy"><span class="cap">Securistyle — Brochure</span></button>
+      <button class="tile reveal" data-gallery="print"><img src="assets/img/print-stoc.jpg" alt="STOC door and window hardware price list book" loading="lazy"><span class="cap">STOC — Price list book</span></button>
+      <button class="tile reveal" data-gallery="print"><img src="assets/img/print-comunello.jpg" alt="Comunello windows corner joints price list book" loading="lazy"><span class="cap">Comunello — Price list book</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== POSTER CASE STUDIES ========== -->
+<section id="posters" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">05 — Poster design</span>
+      <h2 class="left chrome">One product.<br>One big idea.</h2>
+      <p>Three advertising posters, each built around a single visual idea — type and product working as one image. Shown here in context, with the thinking behind them.</p>
+    </div>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Food &amp; beverage · Promo poster</span>
+        <h3>Roast &amp; Co. — Iced Coffee</h3>
+        <p>A launch poster for a café’s iced coffee. The word COFFEE is turned on its side and runs the full height of the poster, while the cup bursts out of a chocolate splash across the two-tone split.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Typography</span><span class="chip">Photo compositing</span></div>
+        <div class="swatches" aria-label="Roast &amp; Co. — Iced Coffee colour palette"><i style="background:#4B3506"></i><i style="background:#AD6832"></i><i style="background:#953E25"></i><i style="background:#611C03"></i><i style="background:#FFFFFF"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Concept, layout, compositing</dd></div><div><dt>Format</dt><dd>3:4 poster · print &amp; digital</dd></div><div><dt>Type</dt><dd>Concept project</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-street.jpg" alt="Roast &amp; Co. iced coffee posters pasted in a row on a street wall" loading="lazy" width="2016" height="1152"><span class="cap">Street posters</span></button>
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-frame.jpg" alt="Roast &amp; Co. poster framed on a café wall with two detail crops" loading="lazy" width="2016" height="1152"><span class="cap">In-store framing</span></button>
+          <button class="tile" data-gallery="coffee"><img src="assets/img/poster-coffee-board.jpg" alt="Roast &amp; Co. poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Make a cold drink feel exciting.</h4><p>An iced coffee poster has to sell refreshment in a second — from across a café or in a fast scroll — and still leave room for the brand, a short message and a clear call to action.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Turn the headline into architecture.</h4><p>Rotating COFFEE ninety degrees makes it a pillar the whole layout leans on. The small “iced” sits on top like a label, and the tilted cup breaks the panel edge so the splash feels like it is leaving the poster.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Warm palette, one loud voice.</h4><p>Dark roast and caramel browns come straight from the drink. Rounded white type with a hard black offset shadow carries the shout; a soft script handles the description; a rust pill button gives the eye a final stop.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Fragrance · Product poster</span>
+        <h3>Nova Essence</h3>
+        <p>“Define your presence.” A perfume poster split down the middle — sage on one side, oxblood on the other — with the lettering swapping colour as it crosses the line and the bottle standing exactly on the seam.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Social media 4:5</span><span class="chip">Product retouching</span></div>
+        <div class="swatches" aria-label="Nova Essence colour palette"><i style="background:#E1ECD3"></i><i style="background:#670206"></i><i style="background:#8A3A0A"></i><i style="background:#D81020"></i><i style="background:#C9CCD1"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Art direction, layout, retouching</dd></div><div><dt>Format</dt><dd>4:5 social post · poster</dd></div><div><dt>Type</dt><dd>Concept project</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-frame.jpg" alt="Nova Essence poster framed on a sage wall between two detail crops" loading="lazy" width="2016" height="1152"><span class="cap">Gallery wall</span></button>
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-phone.jpg" alt="Nova Essence poster shown as a social media post on a phone, beside the printed poster" loading="lazy" width="2016" height="1152"><span class="cap">Social post</span></button>
+          <button class="tile" data-gallery="nova"><img src="assets/img/poster-nova-board.jpg" alt="Nova Essence poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Give a small attar bottle a luxury stage.</h4><p>The product is a compact amber bottle with a busy label. The poster needed to make it feel premium and desirable without redesigning the product itself.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Two moods, one bottle.</h4><p>The split background sets fresh against deep, day against night. The bottle sits on the divide, lifted by a crown of red liquid, while ESSENCE runs vertically down both edges like pillars framing it.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Details that reward a second look.</h4><p>Saffron strands are threaded through the letters of NOVA to hint at the scent. The serif type inverts colour at the seam, including the tagline, so the split reads as intentional from headline to footer.</p></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="brand reveal">
+      <div class="brand-meta">
+        <span class="mono">Watches · Advertising poster</span>
+        <h3>Casio — It’s About Time</h3>
+        <p>A typographic watch ad where the product becomes part of the headline. The dial sits inside the word TIME, and the champagne lettering is colour-matched to the watch face on a near-black ground.</p>
+        <div class="chips"><span class="chip">Poster design</span><span class="chip">Typographic concept</span><span class="chip">Social media 4:5</span></div>
+        <div class="swatches" aria-label="Casio — It’s About Time colour palette"><i style="background:#160D0A"></i><i style="background:#D8C7A1"></i><i style="background:#E9C46A"></i><i style="background:#EEE9D3"></i><i style="background:#7B3F31"></i></div>
+        <dl class="cs-facts"><div><dt>Role</dt><dd>Concept, typography, layout</dd></div><div><dt>Format</dt><dd>4:5 social post · out-of-home</dd></div><div><dt>Type</dt><dd>Self-initiated concept</dd></div></dl>
+      </div>
+      <div>
+        <div class="pgal">
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-lightbox.jpg" alt="Casio It’s About Time poster in a backlit street light box at night" loading="lazy" width="2016" height="1152"><span class="cap">Out-of-home light box</span></button>
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-phone.jpg" alt="Casio poster shown as a social media post on a phone, beside the printed poster" loading="lazy" width="2016" height="1152"><span class="cap">Social post</span></button>
+          <button class="tile" data-gallery="casio"><img src="assets/img/poster-casio-board.jpg" alt="Casio poster details and colour palette" loading="lazy" width="2016" height="1152"><span class="cap">Details &amp; palette</span></button>
+        </div>
+        <div class="cs">
+          <div><span class="mono">01 · The brief</span><h4>Say “classic watch” with almost nothing.</h4><p>A dress watch sells on restraint. The goal was an ad with one line, one product and no decoration — something that would still read from a distance on a street light box.</p></div>
+          <div><span class="mono">02 · The idea</span><h4>Let the watch finish the word.</h4><p>“It’s about time” works as both a pun and a promise. TIME is broken over two lines at poster scale, and the watch drops into the gap after TI — its strap overlapping the letters so type and product become one object.</p></div>
+          <div><span class="mono">03 · The craft</span><h4>Borrow every colour from the product.</h4><p>The champagne of the letters matches the ivory dial, the gold case is the only highlight, and the brown strap is the only warm accent. A wide sans for the brand name against a high-contrast serif keeps the hierarchy clear.</p></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="mono sec-num">06 — About</span>
+      <h2 class="left chrome">Hi, I'm Athar.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-intro">A graphic designer passionate about creating <em>impactful brands</em>, modern websites and engaging digital experiences.</p>
+        <p style="color:var(--muted);margin-top:20px">I specialise in branding, UI/UX design, web design and marketing creatives — helping businesses transform ideas into clean, strategic and visually compelling solutions that leave a lasting impression.</p>
+
+        <div class="block-title mono">Core tools</div>
+        <div class="tools">
+          <span class="tool"><b style="color:#5fb246">Cd</b>CorelDRAW</span>
+          <span class="tool"><b style="color:#31a8ff">Ps</b>Photoshop</span>
+          <span class="tool"><b style="color:#ff9a00">Ai</b>Illustrator</span>
+          <span class="tool"><b style="color:#ff3366">Id</b>InDesign</span>
+          <span class="tool"><b style="color:#a259ff">Fg</b>Figma</span>
+          <span class="tool"><b style="color:#00c4cc">Ca</b>Canva</span>
+          <span class="tool"><b style="color:#9fc6e0">W</b>WordPress</span>
+        </div>
+
+        <div class="block-title mono">Skill set</div>
+        <dl class="skills">
+          <div><dt>Graphic design</dt><dd>CorelDRAW, Photoshop, Illustrator, InDesign, Canva</dd></div>
+          <div><dt>UI/UX</dt><dd>Figma, Adobe XD</dd></div>
+          <div><dt>Web development</dt><dd>HTML, CSS, JavaScript basics, HTML email signatures</dd></div>
+          <div><dt>E-commerce &amp; CMS</dt><dd>Shopify, WooCommerce, WordPress, Wix Studio, Hostinger</dd></div>
+          <div><dt>Video editing</dt><dd>Premiere Pro, After Effects, DaVinci Resolve, Filmora</dd></div>
+          <div><dt>3D modelling</dt><dd>Blender, AutoCAD 2D &amp; 3D, Fusion 360</dd></div>
+        </dl>
+
+        <div class="block-title mono">AI tool efficiency</div>
+        <div class="tools">
+          <span class="tool"><b>◎</b>ChatGPT</span>
+          <span class="tool"><b style="color:#d97757">✳</b>Claude</span>
+          <span class="tool"><b style="color:#7ba6ff">✦</b>Gemini</span>
+          <span class="tool"><b>⌀</b>Grok</span>
+          <span class="tool"><b>⛵</b>Midjourney</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="block-title mono" style="margin-top:0">Experience</div>
+        <ul class="timeline">
+          <li>
+            <h4>DoctorWindow Pvt. Ltd.</h4><span class="when mono">Jul 2025 — Jul 2026</span>
+            <span class="role">Graphic Designer &amp; Front-End Developer · Delhi</span>
+            <ul class="hl">
+              <li>Designed marketing materials, banners and social media creatives for digital platforms.</li>
+              <li>Built a professional HTML email-signature system for the company and team.</li>
+              <li>Supported front-end work — responsive layouts and updates in HTML, CSS and JavaScript.</li>
+            </ul>
+          </li>
+          <li>
+            <h4>Noori Printing Press</h4><span class="when mono">Jan 2024 — May 2025</span>
+            <span class="role">Graphic Designer · Kota, Rajasthan</span>
+            <ul class="hl">
+              <li>Led design and layout of brochures, business cards, packaging and banners.</li>
+              <li>Worked with the print team on accurate colour reproduction and print-ready files.</li>
+              <li>Helped modernise the company's design style while juggling multiple client deadlines.</li>
+            </ul>
+          </li>
+          <li>
+            <h4>Made By Mehnaz</h4><span class="when mono">Sep 2023 — Dec 2023</span>
+            <span class="role">Product Designer &amp; Developer · Remote</span>
+            <ul class="hl">
+              <li>Led brand identity development with cohesive visual storytelling.</li>
+              <li>Designed and built websites with Figma, Wix Studio and WordPress.</li>
+              <li>30% increase in client brand recognition; SEO work boosted organic traffic by 25%.</li>
+            </ul>
+          </li>
+          <li>
+            <h4>Tufan Khabre</h4><span class="when mono">Jun 2020 — Jul 2022</span>
+            <span class="role">UI/UX Designer · Remote</span>
+            <ul class="hl">
+              <li>Led the redesign of the Home and About screens — 40% more engagement, 25% lower bounce rate.</li>
+              <li>Iterated on user feedback, driving a 15% increase in return visits.</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="block-title mono">Education</div>
+        <div class="edu">
+          <h4>Rajasthan Technical University, Kota</h4>
+          <p>Bachelor of Technology — Petroleum Engineering · 2020 — 2024</p>
+        </div>
+
+        <div class="block-title mono">Achievements</div>
+        <ul class="awards">
+          <li><b>1st Runner-Up</b> Shankara Global Hackathon 2022</li>
+          <li><b>2nd Runner-Up</b> Shankara Global Hackathon 2024</li>
+          <li><b>Finalist</b> Smart India Hackathon 2023</li>
+          <li><b>Event Coordinator</b> College Tech Fest — 500+ attendees</li>
+          <li><b>Event Organizer</b> College Cultural Fest — multi-day campus events</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="contact">
+  <div class="sun-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="mono sec-num reveal" style="color:var(--sun)">07 — Contact</span>
+    <h2 class="chrome reveal">Let's make it<br><em>memorable.</em></h2>
+    <p class="reveal">Have a brand, website or campaign in mind? I'd love to hear about it.</p>
+    <a href="mailto:atharraza098@gmail.com" class="mail-big reveal">atharraza098@gmail.com</a>
+    <div class="contact-links reveal">
+      <a class="btn btn-line" href="tel:+919636596242">+91 96365 96242</a>
+      <a class="btn btn-line" href="https://wa.me/919636596242" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-line social-link" data-key="behance" href="#" target="_blank" rel="noopener" hidden>Behance</a>
+      <a class="btn btn-line social-link" data-key="linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Athar Raza · Graphic Designer</span>
+    <span class="mono" style="font-size:11px">アタハル・ラザ — Thank you</span>
+  </div>
+</footer>
+
+<!-- ========== LIGHTBOX ========== -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <span class="count mono" id="lbCount"></span>
+  <button class="x" id="lbClose" aria-label="Close">✕</button>
+  <button class="prev" id="lbPrev" aria-label="Previous">←</button>
+  <img id="lbImg" alt="">
+  <button class="nxt" id="lbNext" aria-label="Next">→</button>
+</div>
+
+<script>
+/* ---- Add your profile links here; buttons appear automatically once filled ---- */
+const SOCIAL = {
+  behance: "https://www.behance.net/atharraza2",
+  linkedin: "https://www.linkedin.com/in/athar-raza-7a7a7120b/"
+};
+document.querySelectorAll('.social-link').forEach(a=>{
+  const url = SOCIAL[a.dataset.key];
+  if(url){a.href=url;a.hidden=false}
+});
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* nav */
+const nav=document.getElementById('nav'), menuBtn=document.getElementById('menuBtn');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20),{passive:true});
+menuBtn.addEventListener('click',()=>{const o=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o)});
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded',false)}));
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCount=document.getElementById('lbCount');
+let list=[],idx=0,lastFocus=null;
+function show(i){idx=(i+list.length)%list.length;lbImg.src=list[idx].src;lbImg.alt=list[idx].alt;lbCount.textContent=`${idx+1} / ${list.length}`}
+function open(items,i){list=items;lastFocus=document.activeElement;show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lbClose').focus()}
+function close(){lb.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+document.querySelectorAll('[data-gallery]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const g=[...document.querySelectorAll(`[data-gallery="${el.dataset.gallery}"]`)];
+    open(g.map(x=>{const im=x.querySelector('img');return{src:im.currentSrc||im.src,alt:im.alt}}),g.indexOf(el));
+  });
+});
+document.getElementById('openDeck').addEventListener('click',()=>{
+  const titles=['Cover','The challenge','Design principles','First-time journey','Onboarding','Account access','Visual language & next steps'];
+  open(titles.map((t,i)=>({src:`assets/img/stylekart-${i+1}.jpg`,alt:`StyleKart case study — ${t}`})),0);
+});
+document.getElementById('lbClose').onclick=close;
+document.getElementById('lbPrev').onclick=()=>show(idx-1);
+document.getElementById('lbNext').onclick=()=>show(idx+1);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+</script>
+</body>
+</html>
