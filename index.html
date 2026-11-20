@@ -224,6 +224,48 @@ section{padding:clamp(80px,12vw,150px) 0}
 .nm-shots .mono{color:#b9c9b4}
 :where(.nm) :focus-visible{outline-color:#f2d53c}
 
+/* Nimbu: expanded case study */
+.nm-challenge{margin-top:clamp(64px,9vw,120px);background:#0c2a1f;border:1px solid rgba(244,246,230,.12);border-radius:24px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.nm-challenge h3{font-family:var(--display);font-size:clamp(32px,4vw,54px);line-height:1;letter-spacing:-.035em;margin-top:14px}
+.nm-challenge h3 em,.nm-sub h3 em{font-family:var(--serif);font-weight:400;color:#f2d53c}
+.nm-challenge p{color:#b9c9b4;margin-top:18px}
+.nm-challenge ul{margin-top:18px;display:grid;gap:8px;color:#f4f6e6;list-style:none;padding:0}
+.nm-challenge li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#f2d53c;margin-right:12px;vertical-align:middle}
+.nm-challenge .q{border:1px solid rgba(244,246,230,.16);border-radius:16px;padding:28px;font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.3vw,30px);line-height:1.25;align-self:center}
+.nm-challenge .q .mono{display:block;font-family:var(--mono);font-style:normal;font-size:11px;color:#f2d53c;margin-bottom:14px}
+.nm-sub{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:clamp(64px,9vw,110px) 0 28px}
+.nm-sub h3{font-family:var(--display);font-size:clamp(30px,4vw,52px);letter-spacing:-.035em;line-height:1}
+.nm-sub p{max-width:440px}
+.nm .journey::before{background:rgba(244,246,230,.2)}
+.nm .step .dot{background:#12372a;border-color:#f2d53c;color:#f2d53c}
+.nm .step:last-child .dot{background:#f2d53c;color:#14201b}
+.nm .step span{color:#b9c9b4}
+.nm-decisions{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.nm-decisions .pr{background:rgba(244,246,230,.05);border-color:rgba(244,246,230,.12)}
+.nm-decisions .pr:hover{box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.nm-decisions .pr .mono{color:#f2d53c}
+.nm-decisions .pr p{color:#b9c9b4}
+.nm-gallery{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
+.nm-gallery .tile{background:#0c2a1f;border-color:rgba(244,246,230,.16)}
+.nm-gallery .tile img{object-position:top}
+.nm-gallery .t-desk{grid-row:span 2;min-height:520px}
+.nm-gallery .t-mob{aspect-ratio:390/700}
+.nm-gallery .t-comp{grid-column:span 2;aspect-ratio:1520/880}
+.nm-system{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.nm-system .palette{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nm .palette div{border-color:rgba(244,246,230,.16)}
+.nm-next{background:#f2d53c;color:#14201b;border-radius:18px;padding:32px}
+.nm-next .mono{color:#4a4a1a}
+.nm-next h4{font-family:var(--display);font-size:clamp(26px,3vw,36px);line-height:1.05;letter-spacing:-.03em;margin:10px 0 12px}
+.nm-next ol{padding-left:20px;display:grid;gap:8px;font-size:15px}
+@media (max-width:860px){
+  .nm-challenge,.nm-system{grid-template-columns:minmax(0,1fr)}
+  .nm-decisions{grid-template-columns:1fr}
+  .nm-gallery{grid-template-columns:1fr 1fr}
+  .nm-gallery .t-desk{grid-column:span 2;grid-row:auto;min-height:0;aspect-ratio:4/5}
+  .nm-gallery .t-comp{grid-column:span 2}
+}
+
 /* ---------- SOCIAL / PRINT GRID ---------- */
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .grid-2 .tile{aspect-ratio:7/4}
@@ -506,10 +548,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="reveal">
         <p class="muted" style="max-width:520px;font-size:18px">A website concept for a Delhi street-food restaurant — taken from grayscale wireframes to a full-colour, clickable prototype, with a menu, opening hours and table booking on one page.</p>
         <div class="sk-meta">
-          <div><span class="mono">Scope</span><b>Home + About</b></div>
-          <div><span class="mono">Platform</span><b>Desktop + mobile</b></div>
+          <div><span class="mono">Role</span><b>UI/UX designer</b></div>
+          <div><span class="mono">Scope</span><b>Home + About pages</b></div>
+          <div><span class="mono">Platform</span><b>Desktop + mobile · Figma</b></div>
           <div><span class="mono">Stages</span><b>Wireframe → UI → prototype</b></div>
-          <div><span class="mono">Tools</span><b>Figma</b></div>
         </div>
         <div class="nm-links">
           <a class="btn btn-lemon" href="https://www.figma.com/design/kk0M66oDcboRlxKfc5XKpZ/Restaurant-Website-UI---Nimbu-Mirchi?node-id=2-245&amp;t=BgssgQlDj0FKoT6T-1" target="_blank" rel="noopener">View colour design
@@ -524,6 +566,73 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="nm-shots">
       <div class="work-card reveal"><button class="tile" data-gallery="nimbu"><img src="assets/img/nimbu-wireframe-home.png" alt="Grayscale wireframe of the Nimbu Mirchi home page" loading="lazy"></button><div class="info"><h4>Wireframe</h4><span class="mono">Structure first</span></div></div>
       <div class="work-card reveal"><button class="tile" data-gallery="nimbu"><img src="assets/img/nimbu-colour-hero.png" alt="Full-colour hero of the Nimbu Mirchi home page with a hanging lemon and chilli charm" loading="lazy"></button><div class="info"><h4>Colour design</h4><span class="mono">Final UI</span></div></div>
+    </div>
+
+    <!-- Challenge -->
+    <div class="nm-challenge reveal">
+      <div>
+        <span class="mono" style="color:#f2d53c">The challenge</span>
+        <h3>Hungry people have <em>four questions.</em></h3>
+        <p>A restaurant site has one job: help someone decide to come, then help them get there. Small restaurant sites often bury the answers in menu PDFs, sliders or a contact page.</p>
+        <ul>
+          <li>What do they serve, and what does it cost?</li>
+          <li>Are they open right now?</li>
+          <li>Where are they, and how do I get there?</li>
+          <li>Can I get a table?</li>
+        </ul>
+      </div>
+      <div class="q"><span class="mono">Design question</span>How might we answer a diner's practical questions on one page, and still make it feel like Old Delhi?</div>
+    </div>
+
+    <!-- Structure -->
+    <div class="nm-sub reveal"><h3>Structure first,<br><em>colour second.</em></h3><p class="muted">I started in grayscale so every decision was about content and order. The home page follows the order a visitor's questions come in, and that structure carried straight through to the final UI.</p></div>
+    <div class="journey reveal" role="list">
+      <div class="step" role="listitem"><div class="dot">01</div><b>Hero</b><span>What it is + open today</span></div>
+      <div class="step" role="listitem"><div class="dot">02</div><b>Food menu</b><span>Dishes, prices, tabs</span></div>
+      <div class="step" role="listitem"><div class="dot">03</div><b>Our story</b><span>Why it exists</span></div>
+      <div class="step" role="listitem"><div class="dot">04</div><b>Hours + location</b><span>When and where</span></div>
+      <div class="step" role="listitem"><div class="dot">05</div><b>Book a table</b><span>A short form</span></div>
+    </div>
+
+    <!-- Decisions -->
+    <div class="nm-sub reveal"><h3>Key design<br><em>decisions.</em></h3></div>
+    <div class="nm-decisions">
+      <div class="pr reveal"><span class="mono">01</span><h4>Booking is always one tap away</h4><p>"Book a table" sits in the header, the hero, the open mobile menu and its own section. Wherever someone is on the page, the main action is visible.</p></div>
+      <div class="pr reveal"><span class="mono">02</span><h4>"Open today" up front</h4><p>A green dot and today's hours sit right under the hero buttons and in the mobile menu, so someone nearby gets the most urgent answer without scrolling.</p></div>
+      <div class="pr reveal"><span class="mono">03</span><h4>A menu you can scan</h4><p>Four category tabs keep the list short. Every dish has a one-line description and a price, and the familiar Indian veg / non-veg dots come with a key.</p></div>
+      <div class="pr reveal"><span class="mono">04</span><h4>Answers before phone calls</h4><p>Plain-language hours with the closed day stated clearly, plus parking and the nearest metro station under the address. The booking rules are written up front.</p></div>
+      <div class="pr reveal"><span class="mono">05</span><h4>A booking form with few fields</h4><p>Name, phone, date, time and guests, plus an optional note. The phone field starts with +91, guests defaults to 2, and the note gives examples like "a birthday, a high chair".</p></div>
+      <div class="pr reveal"><span class="mono">06</span><h4>Mobile, reworked, not squeezed</h4><p>Tabs wrap into two rows instead of scrolling sideways, date and time stay side by side, and the full-screen menu puts hours, phone and address within thumb reach.</p></div>
+    </div>
+
+    <!-- Screens -->
+    <div class="nm-sub reveal"><h3>The screens.</h3><p class="muted mono" style="font-size:12px">Tap to enlarge</p></div>
+    <div class="nm-gallery">
+      <button class="tile t-desk reveal" data-gallery="nimbu-screens"><img src="assets/img/nimbu-home-desktop.png" alt="Full Nimbu Mirchi home page on desktop: hero, menu, story, hours and location, booking form" loading="lazy"><span class="cap">Home · desktop</span></button>
+      <button class="tile t-mob reveal" data-gallery="nimbu-screens"><img src="assets/img/nimbu-home-mobile.png" alt="Nimbu Mirchi home page on mobile" loading="lazy"><span class="cap">Home · mobile</span></button>
+      <button class="tile t-mob reveal" data-gallery="nimbu-screens"><img src="assets/img/nimbu-mobile-menu.png" alt="Open mobile menu with large links, Book a table button and today's hours" loading="lazy"><span class="cap">Mobile menu</span></button>
+      <button class="tile t-comp reveal" data-gallery="nimbu-screens"><img src="assets/img/nimbu-components.png" alt="Nimbu Mirchi components: three button styles, desktop and mobile header and footer" loading="lazy"><span class="cap">Components</span></button>
+    </div>
+
+    <!-- System + next -->
+    <div class="nm-sub reveal"><h3>The name became<br><em>the brand.</em></h3><p class="muted">Nimbu mirchi is the lemon and seven green chillies hung over Delhi shop doors to keep bad luck out. It became the hero illustration and the palette, and it hangs over the kitchen door in the story photo too. Yellow is used only for actions, so yellow always means "do this".</p></div>
+    <div class="nm-system">
+      <div class="palette reveal">
+        <div style="background:#12372A;color:#f4f6e6">Leaf green<span>#12372A</span></div>
+        <div style="background:#F2D53C;color:#14201b">Lemon<span>#F2D53C</span></div>
+        <div style="background:#F4F6E6;color:#14201b">Cream<span>#F4F6E6</span></div>
+        <div style="background:#E7ECCB;color:#14201b">Lime wash<span>#E7ECCB</span></div>
+      </div>
+      <div class="nm-next reveal">
+        <span class="mono">What comes next</span>
+        <h4>From a good-looking page to a tested one.</h4>
+        <ol>
+          <li>Test the booking flow with 5 people: "Book for 4 this Saturday at 8 pm".</li>
+          <li>Design the missing states: date and time pickers, form errors and a booking-confirmed screen.</li>
+          <li>Fill the other menu tabs and check long lists on mobile.</li>
+          <li>Check colour contrast against WCAG AA, especially small text on green.</li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
